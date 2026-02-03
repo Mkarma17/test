@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlock Our Love 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family: system-ui, Arial;
+  background: linear-gradient(135deg,#0b0b12,#2a1550,#3b1440);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+}
+
+.box{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  padding:30px 22px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.15);
+  text-align:center;
+  width:90%;
+  max-width:350px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+h1{
+  margin:0 0 10px;
+  font-size:26px;
+}
+
+p{
+  color:rgba(255,255,255,0.75);
+  margin-bottom:18px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:700;
+  background:linear-gradient(90deg,#ff4fa3,#9d5cff);
+  color:white;
+  cursor:pointer;
+}
+
+.error{
+  margin-top:10px;
+  color:#ff8b8b;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>🔒 Private Page</h1>
+  <p>Only for Ammu 💖</p>
+
+  <input type="password" id="pass" placeholder="Enter password">
+
+  <button onclick="unlock()">Unlock</button>
+
+  <div class="error" id="err">Wrong password 😅</div>
+</div>
+
+<script>
+const PASSWORD = "MKAY1316";   // 👉 CHANGE THIS
+
+if(localStorage.getItem("unlocked") === "yes"){
+  window.location.href = "main.html";
+}
+
+function unlock(){
+  const p = document.getElementById("pass").value;
+
+  if(p === PASSWORD){
+    localStorage.setItem("unlocked","yes");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("err").style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>
